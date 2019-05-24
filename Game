@@ -1,0 +1,35 @@
+print('Beginning Balance = ${0:,d}'.format(money))
+# print 'Beginning Balance and formating 
+  while contin == 'y' or contin == 'Y': # Loop that controls the game
+      plays = plays + 1
+      firstroll = True  # Flag showing whether this is the first roll
+      win_lose = ''  # This is an empty string until there is a win or loss
+      while win_lose == '':  # Loop controlling individual wins/losses
+          myroll = dice_rolls()
+          print(myroll, end=' ')
+          if firstroll:
+              if myroll < 4 or myroll == 12:
+                  win_lose = 'L'
+                  continue
+              if myroll == 7 or myroll == 11:
+                  win_lose = 'W'
+                  continue
+              point = myroll
+              firstroll = False
+              continue
+          if myroll == 7:
+              win_lose = 'L'
+              continue
+          if myroll == point:
+              win_lose = 'W'
+              continue
+      if win_lose == 'L':
+          money = money - 10
+          print('You lose!')
+          if money <= 0:
+              break
+      if win_lose == 'W':
+          money = money + 10
+          print('You win!')
+      print('Balance = ${0:,d}'.format(money), end=' ')
+      contin = input('Play again? y/n: ') # Any entry other than y or Y ends play
