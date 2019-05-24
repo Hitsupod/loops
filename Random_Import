@@ -1,0 +1,3 @@
+from random import randrange 
+		def dice_rolls():
+return randrange(1,7) + randrange(1,7) 
