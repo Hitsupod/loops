@@ -1,0 +1,2 @@
+print('\nNumber of plays -', plays)
+print('Ending Balance = ${0:,d}'.format(money))
